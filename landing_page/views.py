@@ -1,3 +1,17 @@
 from django.shortcuts import render
 
-# Create your views here.
+
+def home_view(request):
+    pass
+
+
+def info_view(request):
+    pass
+
+
+def testimonial_view(request):
+    pass
+
+
+def contact_view(request):
+    pass
