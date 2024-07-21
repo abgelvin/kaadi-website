@@ -1,0 +1,25 @@
+# Virtual environment
+venv/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.python_history
+
+# Django
+*.log
+*.pot
+*.pyc
+*.mo
+*.pyo
+__pycache__/
+local_settings.py
+db.sqlite3
+
+# VS Code
+.vscode/
+
+# MacOS
+.DS_Store
