@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.contrib import messages
-from django.core.mail import send_mail, EmailMessage
+from django.core.mail import send_mail, EmailMessage, get_connection
 from django.conf import settings
 from django.views.generic import TemplateView, FormView
 from .forms import ContactForm
@@ -51,24 +51,60 @@ class SuccessView(TemplateView):
 
 #         return super(ContactView, self).form_valid(form)
 
+
+# def send_mail(request):
+#     form = ContactForm()
+#     if request.method == 'POST':
+#         form = ContactForm(request.POST)
+#         if form.is_valid():
+#             name = form.cleaned_data.get('name')
+#             # email = form.cleaned_data.get('email')
+#             subject = form.cleaned_data.get('subject')
+#             message = f'You have a message from {name}: {form.cleaned_data.get("message")}'
+#             print(f'message: {message}')
+#             print('sending email...')
+#             try:
+#                 with get_connection(
+#                     host=settings.EMAIL_HOST,
+#                     port=settings.EMAIL_PORT,
+#                     username=settings.EMAIL_HOST_USER,
+#                     password=settings.EMAIL_HOST_PASSWORD,
+#                     use_tls=settings.EMAIL_USE_TLS
+#                 ) as connection:
+#                     subject = request.POST.get('subject')
+#                     email_from = settings.EMAIL_HOST_USER
+#                     recipient_list = [settings.EMAIL_HOST_USER]
+#                     message = request.POST.get('message')
+#                     EmailMessage(subject, message, email_from, recipient_list, connection=connection).send()
+
+#                 return render(request, 'success.html')
+#             except Exception as e:
+#                 logger.error(f'error sending email: {e}')
+#     else:
+#         form = ContactForm()
+#     return render(request, 'contact.html', {'form': form})
+
+
+
 def contact_view(request):
-    form = ContactForm()
+    """GET isplays contact form or POST sends email from contact form"""
+
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
             name = form.cleaned_data.get('name')
             email = form.cleaned_data.get('email')
             subject = form.cleaned_data.get('subject')
-            message = f'You have a message from {name}: {form.cleaned_data.get("message")}'
+            message = f'You have a message from {name} @ {email}: \n{form.cleaned_data.get("message")}'
             print(f'message: {message}')
             print('sending email...')
             try:
+                print('trying')
                 send_mail(
                 subject,
                 message,
-                email,
+                'kaadilove@hotmail.com',
                 ['abgelvin@gmail.com'],
-                fail_silently=False
                 )
                 print(f'mail sent')
             except Exception as e:
@@ -87,15 +123,3 @@ def contact_view(request):
     else:
         form = ContactForm()
     return render(request, 'contact.html', {'form': form})
-
-# def success(request):
-#     return 
-            
-    
-
-# def send_email(request):
-#     send_mail(subject=request.POST.get('subject'),
-#               from_email=request.POST.get('email'),
-#               message=request.POST.get('message'),
-#               recipient_list='abgelvin@gmail.com')
-#     return reverse('success')

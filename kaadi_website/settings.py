@@ -20,7 +20,8 @@ import certifi
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 env = environ.Env()
-environ.Env.read_env(os.path.join(BASE_DIR, 'landing_page/.env'))
+# environ.Env.read_env()
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
@@ -44,7 +45,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'landing_page', 
-    'bootstrap5'
+    'bootstrap5',
+    'anymail',
 ]
 
 MIDDLEWARE = [
@@ -132,16 +134,26 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'landing_page/static')]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.mail.yahoo.com'
-EMAIL_HOST_USER = env('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
-EMAIL_USE_TLS = True
-EMAIL_USE_SSL = False
-EMAIL_PORT = 587
-EMAIL_TIMEOUT = 60
-EMAIL_SSL_CERTFILE = certifi.where()
-EMAIL_SSL_CA_BUNDLE = certifi.where()
+# Configure anymail
+ANYMAIL = {
+    'MAILJET_API_KEY': env('MAILJET_API_KEY'),
+    'MAILJET_SECRET_KEY': env('MAILJET_SECRET_KEY'),
+}
+
+EMAIL_BACKEND = 'anymail.backends.mailjet.EmailBackend'
+DEFAULT_FROM_EMAIL = 'abgelvin@hotmail.com'
+
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = 'smtp-mail.outlook.com'
+# EMAIL_HOST_USER = env('EMAIL_HOST_USER')
+# EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
+# EMAIL_USE_TLS = True
+# EMAIL_USE_SSL = False
+# EMAIL_PORT = 587
+# EMAIL_TIMEOUT = 60
+# EMAIL_SSL_CERTFILE = certifi.where()
+# EMAIL_SSL_CA_BUNDLE = certifi.where()
+# os.environ['DJANGO_SETTING_MODULE']='kaadi_website.settings'
 
 LOGGING = {
     'version': 1,
@@ -156,7 +168,7 @@ LOGGING = {
     'loggers': {
         'django': {
             'handlers': ['file'],
-            'level': 'ERROR',
+            'level': 'DEBUG',
             'propogate': True,
         },
     },
