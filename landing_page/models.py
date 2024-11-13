@@ -2,29 +2,27 @@ from django.db import models
 
 
 class Service(models.Model):
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100, blank=True)
     description = models.TextField()
-    price = models.DecimalField(max_digits=5, decimal_places=2)
-    duration = models.IntegerField()
-    price_2 = models.DecimalField(max_digits=5, decimal_places=2)
-    duration_2 = models.IntegerField()
-
+    price = models.DecimalField(max_digits=5, decimal_places=2, blank=True)
+    duration = models.IntegerField(blank=True)
+    
     def __str__(self):
-        return self.name
+        return self.description
     
 
 class Testimonial(models.Model):
-    client_name = models.CharField(max_length=100)
+    client_name = models.CharField(max_length=100, blank=True)
     message = models.TextField()
 
     def __str__(self):
-        return f'{self.message} - {self.client_name}'
+        return f'{self.message}'
     
 
 class Info(models.Model):
-    question = models.CharField(max_length=200)
-    answer_text = models.TextField()
-    answer_video = models.FileField(blank=True)
+    info_text = models.TextField()
+    info_image = models.ImageField()
+    info_video = models.FileField(blank=True)
 
 
 class ContactMessage(models.Model):
