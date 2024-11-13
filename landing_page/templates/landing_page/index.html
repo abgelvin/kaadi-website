@@ -1,4 +1,5 @@
 {% load static %}
+{% comment %} {% load my_tags %} {% endcomment %}
 
 
 <!DOCTYPE html>
@@ -30,9 +31,11 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
                         <li class="nav-item"><a class="nav-link" href="#info">Info</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#approach">My Approach</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#session">A Session</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#testimonials">Testimonials</a></li>
                         <li class="nav-item"><a class="nav-link" href="#signup">Contact</a></li>
                     </ul>
                 </div>
@@ -43,78 +46,69 @@
             <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
                 <div class="d-flex justify-content-center">
                     <div class="text-center">
+                        <h1 class="mx-auto fs-1 my-0 text-uppercase">Biodynamic</h1>
                         <h1 class="mx-auto my-0 text-uppercase">Craniosacral Therapy</h1>
-                        <h2 class="text-white-50 mx-auto mt-2 mb-5">Some tagline or something</h2>
-                        <a class="btn btn-primary" href="#about">About Me</a>
+                        <h2 class="text-white-50 fs-3 mx-auto mt-2 mb-5">"A compassionate journey into deeper self-connection, where presence and healing meet."</h2>
+                        <h2 class="text-white-50 fs-5 pt-5 mx-auto mb-1">BioDynamic Craniosacral Therapy involves gentle hands-on work that honors the client’s own self-healing process. The intention is not to fix problems, but rather to encourage the emergence of new levels of order in mind and body. Practitioners know how to recognize the presence of the Breath of Life in many levels and locations of the body, and use appropriate methods to support and nurture its natural expression. -Anna Chitty</h2>
+                        {% comment %} <a class="btn btn-primary" href="#about">About Me</a> {% endcomment %}
                     </div>
                 </div>
             </div>
         </header>
-        <!-- About-->
-        <section class="about-section text-center" id="about">
-            <div class="container px-4 px-lg-5">
-                <div class="row gx-4 gx-lg-5 justify-content-center">
-                    <div class="col-lg-8">
-                        <h2 class="text-white mb-4">Kaadi</h2>
-                        <p class="text-white-50">
-                            Kaddi is an amazing massage therapist that has made a transition from massage therapy to craniosacral therapy.
-                            <!-- <a href="https://startbootstrap.com/theme/grayscale/">the preview page.</a> -->
-                            She is really good at what she does!
-                        </p>
-                    </div>
-                </div>
-                <img class="img-fluid" src="{% static 'assets/img/ipad.png' %}" alt="..." />
-            </div>
-        </section>
+
         <!-- Info -->
         <section class="projects-section bg-light" id="info">
-            <div class="container px-4 px-lg-5">
-                <!-- Featured Info Row-->
-                <div class="row gx-0 mb-4 mb-lg-5 align-items-center">
-                    <div class="col-xl-8 col-lg-7"><img class="img-fluid mb-3 mb-lg-0" src="{% static 'assets/img/bg-masthead.jpg' %}" alt="..." /></div>
-                    <div class="col-xl-4 col-lg-5">
-                        <div class="featured-text text-center text-lg-left">
-                            <h4>Information #1</h4>
-                            <p class="text-black-50 mb-0">Grayscale is open source and MIT licensed. This means you can use it for any project - even commercial projects! Download it, customize it, and publish your website!</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Info One Row-->
-                <div class="row gx-0 mb-5 mb-lg-0 justify-content-center">
-                    <div class="col-lg-6"><img class="img-fluid" src="{% static 'assets/img/demo-image-01.jpg' %}" alt="..." /></div>
-                    <div class="col-lg-6">
-                        <div class="bg-black text-center h-100 project">
-                            <div class="d-flex h-100">
-                                <div class="project-text w-100 my-auto text-center text-lg-left">
-                                    <h4 class="text-white">Information #2</h4>
-                                    <p class="mb-0 text-white-50">An example of where you can put an image of a project, or anything else, along with a description.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Info Two Row-->
-                <div class="row gx-0 justify-content-center">
-                    <div class="col-lg-6"><img class="img-fluid" src="{% static 'assets/img/demo-image-02.jpg' %}" alt="..." /></div>
-                    <div class="col-lg-6 order-lg-first">
-                        <div class="bg-black text-center h-100 project">
-                            <div class="d-flex h-100">
-                                <div class="project-text w-100 my-auto text-center text-lg-right">
-                                    <h4 class="text-white">Information #3</h4>
-                                    <p class="mb-0 text-white-50">Another example of a project with its respective description. These sections work well responsively as well!</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class='text-center'>
+                <h1 class="mx-auto my-4 text-uppercase">What is Biodynamic Craniosacral Therapy &#40BCST&#41?</h1>
             </div>
+            <div class="container px-4 px-lg-5">
+                {% for item in info %}
+                    {% cycle 'odd' 'even' as div_type silent %}
+                    <!-- Featured Info Row-->
+                    {% if div_type == 'odd' %}
+                    <div class="row gx-0 mb-5 mb-lg-0 justify-content-center">
+                        <div class="col-lg-6"><img class="img-fluid" src="{% static 'assets/img/vertical-wave.jpg' %}" alt="..." /></div>
+                        <div class="col-lg-6">
+                            <div class="bg-black text-center h-100 project">
+                                <div class="d-flex h-100">
+                                    <div class="project-text w-100 my-auto text-center text-lg-left">
+                                        {% comment %} <h4 class="text-white">{{ item.question }}</h4> {% endcomment %}
+                                        <p class="mb-0 text-white-50 text-start">{{ item.answer_text }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Info One Row-->
+                    {% elif div_type == 'even' %}
+                    <div class="row gx-0 justify-content-center">
+                        <div class="col-lg-6"><img class="img-fluid" src="{% static 'assets/img/green-droplet.jpg' %}" alt="..." /></div>
+                        <div class="col-lg-6 order-lg-first">
+                            <div class="bg-black text-center h-100 project">
+                                <div class="d-flex h-100">
+                                    <div class="project-text w-100 my-auto text-center text-lg-right">
+                                        <h4 class="text-white">{{ item.question }}</h4>
+                                        <p class="mb-0 text-white-50">{{ item.answer_text }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            
+
         </section>
-        <!-- Services -->
-        <section class="projects-section bg-light" id="services">
+        <!-- Approach -->
+        <section class="projects-section bg-light" id="approach">
+            <div class='text-center'>
+                <h1 class="mx-auto my-4 text-uppercase">My Approach</h1>
+            </div>
             <div class="container px-4 px-lg-5">
                 <!-- Info Row-->
                 <div class="row gx-0 mb-4 mb-lg-5 align-items-center">
-                    <div class="col-xl-8 col-lg-7"><img class="img-fluid mb-3 mb-lg-0" src="{% static 'assets/img/bg-masthead.jpg' %}" alt="..." /></div>
+                    <div class="col-xl-8 col-lg-7"><img class="img-fluid mb-3 mb-lg-0" src="{% static 'assets/img/sunset-wave.jpg' %}" alt="..." /></div>
                     <div class="col-xl-4 col-lg-5">
                         <div class="featured-text text-center text-lg-left">
                             <h4>service #1</h4>
@@ -150,6 +144,70 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </section>
+                <!-- About-->
+                <section class="about-section text-center" id="about">
+                    <div class="container px-4 px-lg-5">
+                        <div class="row gx-4 gx-lg-5 justify-content-center">
+                            <div class="col-lg-8">
+                                <h2 class="text-white mb-4">Kaadi</h2>
+                                <p class="text-white-50">
+                                    Kaddi is an amazing massage therapist that has made a transition from massage therapy to craniosacral therapy.
+                                    <!-- <a href="https://startbootstrap.com/theme/grayscale/">the preview page.</a> -->
+                                    She is really good at what she does!
+                                </p>
+                            </div>
+                        </div>
+                        <img class="img-fluid" src="{% static 'assets/img/kaadi-portrait.jpg' %}" alt="..." />
+                    </div>
+                </section>
+        <section class="projects-section bg-light" id="testimonials">
+            <div class='text-center'>
+                <h1 class="mx-auto my-4 text-uppercase">Testimonials</h1>
+            </div>
+            <div class="container px-4 px-lg-5">
+                <!-- Info Row-->
+                 {% for testimonial in testimonials %}
+                 {% cycle 'odd' 'even' as div_type silent %}
+                    {% if div_type == 'odd' %}
+                        <div class="row gx-0 mb-4 mb-lg-5 align-items-center">
+                            {% comment %} <div class="col-xl-8 col-lg-7"><img class="img-fluid mb-3 mb-lg-0" src="{% static 'assets/img/bg-masthead.jpg' %}" alt="..." /></div> {% endcomment %}
+                            <div class="col-xl-12 col-lg-12">
+                                <div class="featured-text text-center text-lg-left">
+                                    <p class="text-black-50 mb-0">"{{ testimonial.message }}" - {{ testimonial.client_name }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    {% elif div_type == 'even' %}
+                <!-- Info Row-->
+                <div class="row gx-0 mb-5 mb-lg-0 justify-content-center">
+                    <div class="col-lg-12">
+                        <div class="bg-black text-center h-100 project">
+                            <div class="d-flex h-100">
+                                <div class="project-text w-100 my-auto text-center text-lg-left">
+                                    <p class="mb-0 text-white-50">"{{ testimonial.message }}" - {{ testimonial.client_name }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+                {% endfor %}
+                {% comment %} <!-- Info Two Row-->
+                <div class="row gx-0 justify-content-center">
+                    <div class="col-lg-6"><img class="img-fluid" src="{% static 'assets/img/demo-image-02.jpg' %}" alt="..." /></div>
+                    <div class="col-lg-6 order-lg-first">
+                        <div class="bg-black text-center h-100 project">
+                            <div class="d-flex h-100">
+                                <div class="project-text w-100 my-auto text-center text-lg-right">
+                                    <h4 class="text-white">Service #3</h4>
+                                    <p class="mb-0 text-white-50">Another example of a project with its respective description. These sections work well responsively as well!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> {% endcomment %}
             </div>
         </section>
         <!-- Signup-->

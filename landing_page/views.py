@@ -6,12 +6,22 @@ from django.conf import settings
 from django.views.generic import TemplateView, FormView
 from .forms import ContactForm
 import logging
+from .models import Info, Testimonial, Service
 
 logger = logging.getLogger(__name__)
 
 
 def index(request):
-    return render(request, 'landing_page/index.html')
+    info = Info.objects.all()
+    services = Service.objects.all()
+    testimonials = Testimonial.objects.all()
+    context = {
+        'info': info,
+        'services': services,
+        'testimonials': testimonials
+    }
+
+    return render(request, 'landing_page/index.html', context)
 
 
 # def info_view(request):
@@ -85,9 +95,8 @@ class SuccessView(TemplateView):
 #     return render(request, 'contact.html', {'form': form})
 
 
-
 def contact_view(request):
-    """GET isplays contact form or POST sends email from contact form"""
+    """GET displays contact form or POST sends email from contact form"""
 
     if request.method == 'POST':
         form = ContactForm(request.POST)
@@ -101,21 +110,14 @@ def contact_view(request):
             try:
                 print('trying')
                 send_mail(
-                subject,
-                message,
-                'kaadilove@hotmail.com',
-                ['abgelvin@gmail.com'],
+                    subject,
+                    message,
+                    'kaadilove@hotmail.com',
+                    ['abgelvin@gmail.com'],
                 )
                 print(f'mail sent')
             except Exception as e:
                 logger.error(f'error sending email: {e}')
-            # messages.success(request, 'success')
-            # EmailMessage(
-            #     subject,
-            #     f'Email from {name}: {message}',
-            #     email,
-            #     ['abgelvin@gmail.com']
-            # ).send()
             return redirect('success')
         else:
             logger.error('form is invalid')

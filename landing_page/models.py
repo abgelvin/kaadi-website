@@ -1,12 +1,13 @@
 from django.db import models
-from . import views
 
 
 class Service(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField()
     price = models.DecimalField(max_digits=5, decimal_places=2)
-    duration = models.DurationField()
+    duration = models.IntegerField()
+    price_2 = models.DecimalField(max_digits=5, decimal_places=2)
+    duration_2 = models.IntegerField()
 
     def __str__(self):
         return self.name
@@ -23,7 +24,7 @@ class Testimonial(models.Model):
 class Info(models.Model):
     question = models.CharField(max_length=200)
     answer_text = models.TextField()
-    answer_video = models.FileField()
+    answer_video = models.FileField(blank=True)
 
 
 class ContactMessage(models.Model):
