@@ -20,8 +20,8 @@ class Testimonial(models.Model):
     
 
 class Info(models.Model):
-    info_text = models.TextField()
-    info_image = models.ImageField()
+    info_text = models.TextField(blank=True)
+    info_image = models.ImageField(blank=True)
     info_video = models.FileField(blank=True)
 
 

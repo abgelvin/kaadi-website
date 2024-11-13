@@ -67,13 +67,14 @@
                     <!-- Featured Info Row-->
                     {% if div_type == 'odd' %}
                     <div class="row gx-0 mb-5 mb-lg-0 justify-content-center">
-                        <div class="col-lg-6"><img class="img-fluid" src="{% static 'assets/img/vertical-wave.jpg' %}" alt="..." /></div>
+                        <div class="col-lg-6"><img class="img-fluid" src="{% static 'assets/img/pink-lillies.jpg' %}" alt="..." /></div>
+                        {% comment %} <div class="col-lg-6"><img class="img-fluid" src={{ item.info_image }} alt="..." /></div> {% endcomment %}
                         <div class="col-lg-6">
                             <div class="bg-black text-center h-100 project">
                                 <div class="d-flex h-100">
                                     <div class="project-text w-100 my-auto text-center text-lg-left">
                                         {% comment %} <h4 class="text-white">{{ item.question }}</h4> {% endcomment %}
-                                        <p class="mb-0 text-white-50 text-start">{{ item.answer_text }}</p>
+                                        <p class="mb-0 text-white-50 text-start">{{ item.info_text }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -82,13 +83,14 @@
                     <!-- Info One Row-->
                     {% elif div_type == 'even' %}
                     <div class="row gx-0 justify-content-center">
-                        <div class="col-lg-6"><img class="img-fluid" src="{% static 'assets/img/green-droplet.jpg' %}" alt="..." /></div>
+                        {% comment %} <div class="col-lg-6"><img class="img-fluid" src="{% static 'assets/img/green-droplet.jpg' %}" alt="..." /></div> {% endcomment %}
+                        <div class="col-lg-6"><img class="img-fluid" src={{ item.info_image }} alt="..." /></div>
                         <div class="col-lg-6 order-lg-first">
                             <div class="bg-black text-center h-100 project">
                                 <div class="d-flex h-100">
                                     <div class="project-text w-100 my-auto text-center text-lg-right">
-                                        <h4 class="text-white">{{ item.question }}</h4>
-                                        <p class="mb-0 text-white-50">{{ item.answer_text }}</p>
+                                        {% comment %} <h4 class="text-white">{{ item.question }}</h4> {% endcomment %}
+                                        <p class="mb-0 text-white-50">{{ item.info_text }}</p>
                                     </div>
                                 </div>
                             </div>
