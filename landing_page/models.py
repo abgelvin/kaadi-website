@@ -2,14 +2,35 @@ from django.db import models
 
 
 class Service(models.Model):
-    name = models.CharField(max_length=100, blank=True)
-    description = models.TextField()
-    price = models.DecimalField(max_digits=5, decimal_places=2, blank=True)
-    duration = models.IntegerField(blank=True)
+    text = models.TextField()
+
+
+class Session(models.Model):
+    text = models.TextField()
+    image = models.ImageField(upload_to='uploads/', blank=True)
+    image_url = models.URLField(blank=True)
     
     def __str__(self):
-        return self.description
+        return 'Session description text'
     
+
+class Approach(models.Model):
+    text = models.TextField()
+    image = models.ImageField(upload_to='uploads/', blank=True)
+    image_url = models.URLField(blank=True)
+
+    def __str__(self):
+        return 'My approach text'
+
+
+class About(models.Model):
+    text = models.TextField()
+    image = models.ImageField(upload_to='uploads/', blank=True)
+    image_url = models.URLField(blank=True)
+
+    def __str__(self):
+        return 'About me text'
+
 
 class Testimonial(models.Model):
     client_name = models.CharField(max_length=100, blank=True)
@@ -20,9 +41,14 @@ class Testimonial(models.Model):
     
 
 class Info(models.Model):
-    info_text = models.TextField(blank=True)
-    info_image = models.ImageField(blank=True)
+    info_title = models.CharField(max_length=100, blank=True)
+    info_text = models.TextField(max_length=500)
+    info_image = models.ImageField(upload_to='uploads/', blank=True)
+    info_url = models.URLField(blank=True)
     info_video = models.FileField(blank=True)
+
+    def __str__(self):
+        return f'{self.info_title}'
 
 
 class ContactMessage(models.Model):

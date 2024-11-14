@@ -6,18 +6,22 @@ from django.conf import settings
 from django.views.generic import TemplateView, FormView
 from .forms import ContactForm
 import logging
-from .models import Info, Testimonial, Service
+from .models import Info, Testimonial, Session, About, Approach
 
 logger = logging.getLogger(__name__)
 
 
 def index(request):
     info = Info.objects.all()
-    services = Service.objects.all()
+    session = Session.objects.all()
+    approach = Approach.objects.all()
+    about = About.objects.all()
     testimonials = Testimonial.objects.all()
     context = {
         'info': info,
-        'services': services,
+        'session': session,
+        'approach': approach,
+        'about': about,
         'testimonials': testimonials
     }
 

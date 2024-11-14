@@ -67,8 +67,8 @@
                     <!-- Featured Info Row-->
                     {% if div_type == 'odd' %}
                     <div class="row gx-0 mb-5 mb-lg-0 justify-content-center">
-                        <div class="col-lg-6"><img class="img-fluid" src="{% static 'assets/img/pink-lillies.jpg' %}" alt="..." /></div>
-                        {% comment %} <div class="col-lg-6"><img class="img-fluid" src={{ item.info_image }} alt="..." /></div> {% endcomment %}
+                        {% comment %} <div class="col-lg-6"><img class="img-fluid" src="{% static 'assets/img/vertical-wave.jpg' %}" alt="..." /></div> {% endcomment %}
+                        <div class="col-lg-6"><img class="img-fluid" src="{{ item.info_image.url }}" alt="..." /></div>
                         <div class="col-lg-6">
                             <div class="bg-black text-center h-100 project">
                                 <div class="d-flex h-100">
@@ -84,13 +84,14 @@
                     {% elif div_type == 'even' %}
                     <div class="row gx-0 justify-content-center">
                         {% comment %} <div class="col-lg-6"><img class="img-fluid" src="{% static 'assets/img/green-droplet.jpg' %}" alt="..." /></div> {% endcomment %}
-                        <div class="col-lg-6"><img class="img-fluid" src={{ item.info_image }} alt="..." /></div>
+                        <div class="col-lg-6"><img class="img-fluid" src="{{ item.info_image.url }}" alt="..." /></div>
                         <div class="col-lg-6 order-lg-first">
                             <div class="bg-black text-center h-100 project">
                                 <div class="d-flex h-100">
                                     <div class="project-text w-100 my-auto text-center text-lg-right">
                                         {% comment %} <h4 class="text-white">{{ item.question }}</h4> {% endcomment %}
                                         <p class="mb-0 text-white-50">{{ item.info_text }}</p>
+
                                     </div>
                                 </div>
                             </div>
@@ -108,7 +109,7 @@
                 <h1 class="mx-auto my-4 text-uppercase">My Approach</h1>
             </div>
             <div class="container px-4 px-lg-5">
-                <!-- Info Row-->
+                <!-- Approach Row-->
                 <div class="row gx-0 mb-4 mb-lg-5 align-items-center">
                     <div class="col-xl-8 col-lg-7"><img class="img-fluid mb-3 mb-lg-0" src="{% static 'assets/img/sunset-wave.jpg' %}" alt="..." /></div>
                     <div class="col-xl-4 col-lg-5">
@@ -118,7 +119,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- Info Row-->
+                {% comment %} <!-- Info Row-->
                 <div class="row gx-0 mb-5 mb-lg-0 justify-content-center">
                     <div class="col-lg-6"><img class="img-fluid" src="{% static 'assets/img/demo-image-01.jpg' %}" alt="..." /></div>
                     <div class="col-lg-6">
@@ -147,7 +148,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> {% endcomment %}
                 <!-- About-->
                 <section class="about-section text-center" id="about">
                     <div class="container px-4 px-lg-5">
