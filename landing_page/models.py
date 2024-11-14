@@ -10,6 +10,11 @@ class Session(models.Model):
     image = models.ImageField(upload_to='uploads/', blank=True)
     image_url = models.URLField(blank=True)
     
+    def get_image(self):
+        if self.image:
+            return self.image.url
+        return self.image_url
+    
     def __str__(self):
         return 'Session description text'
     
@@ -19,6 +24,11 @@ class Approach(models.Model):
     image = models.ImageField(upload_to='uploads/', blank=True)
     image_url = models.URLField(blank=True)
 
+    def get_image(self):
+        if self.image:
+            return self.image.url
+        return self.image_url
+    
     def __str__(self):
         return 'My approach text'
 
@@ -28,6 +38,11 @@ class About(models.Model):
     image = models.ImageField(upload_to='uploads/', blank=True)
     image_url = models.URLField(blank=True)
 
+    def get_image(self):
+        if self.image:
+            return self.image.url
+        return self.image_url
+    
     def __str__(self):
         return 'About me text'
 
@@ -41,12 +56,17 @@ class Testimonial(models.Model):
     
 
 class Info(models.Model):
-    info_title = models.CharField(max_length=100, blank=True)
-    info_text = models.TextField(max_length=500)
-    info_image = models.ImageField(upload_to='uploads/', blank=True)
-    info_url = models.URLField(blank=True)
-    info_video = models.FileField(blank=True)
+    title = models.CharField(max_length=100, blank=True)
+    text = models.TextField(max_length=500)
+    image = models.ImageField(upload_to='uploads/', blank=True)
+    image_url = models.URLField(blank=True)
+    video = models.FileField(blank=True)
 
+    def get_image(self):
+        if self.image:
+            return self.image.url
+        return self.image_url
+    
     def __str__(self):
         return f'{self.info_title}'
 

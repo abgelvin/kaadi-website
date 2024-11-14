@@ -111,11 +111,11 @@
             <div class="container px-4 px-lg-5">
                 <!-- Approach Row-->
                 <div class="row gx-0 mb-4 mb-lg-5 align-items-center">
-                    <div class="col-xl-8 col-lg-7"><img class="img-fluid mb-3 mb-lg-0" src="{% static 'assets/img/sunset-wave.jpg' %}" alt="..." /></div>
+                    <div class="col-xl-8 col-lg-7"><img class="img-fluid mb-3 mb-lg-0" src="{{ approach.image.url }}" alt="..." /></div>
                     <div class="col-xl-4 col-lg-5">
                         <div class="featured-text text-center text-lg-left">
                             <h4>service #1</h4>
-                            <p class="text-black-50 mb-0">Grayscale is open source and MIT licensed. This means you can use it for any project - even commercial projects! Download it, customize it, and publish your website!</p>
+                            <p class="text-black-50 mb-0">{{ approach.text }}</p>
                         </div>
                     </div>
                 </div>
@@ -147,8 +147,8 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </section> {% endcomment %}
+            </div> {% endcomment %}
+        </section> 
                 <!-- About-->
                 <section class="about-section text-center" id="about">
                     <div class="container px-4 px-lg-5">
@@ -165,12 +165,13 @@
                         <img class="img-fluid" src="{% static 'assets/img/kaadi-portrait.jpg' %}" alt="..." />
                     </div>
                 </section>
+                <!-- Testimonials -->
         <section class="projects-section bg-light" id="testimonials">
             <div class='text-center'>
                 <h1 class="mx-auto my-4 text-uppercase">Testimonials</h1>
             </div>
             <div class="container px-4 px-lg-5">
-                <!-- Info Row-->
+                <!-- Testimonial row-->
                  {% for testimonial in testimonials %}
                  {% cycle 'odd' 'even' as div_type silent %}
                     {% if div_type == 'odd' %}
@@ -183,7 +184,7 @@
                             </div>
                         </div>
                     {% elif div_type == 'even' %}
-                <!-- Info Row-->
+                <!-- Testimonial Row-->
                 <div class="row gx-0 mb-5 mb-lg-0 justify-content-center">
                     <div class="col-lg-12">
                         <div class="bg-black text-center h-100 project">
