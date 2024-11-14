@@ -64,34 +64,41 @@
             <div class="container px-4 px-lg-5">
                 {% for item in info %}
                     {% cycle 'odd' 'even' as div_type silent %}
-                    <!-- Featured Info Row-->
+                    <!-- Info Odd Row-->
                     {% if div_type == 'odd' %}
                     <div class="row gx-0 mb-5 mb-lg-0 justify-content-center">
                         {% comment %} <div class="col-lg-6"><img class="img-fluid" src="{% static 'assets/img/vertical-wave.jpg' %}" alt="..." /></div> {% endcomment %}
-                        <div class="col-lg-6"><img class="img-fluid" src="{{ item.info_image.url }}" alt="..." /></div>
+                        {% if item.get_image %}
+                            <div class="col-lg-6"><img class="img-fluid" src="{{ item.get_image }}" alt="..." /></div>
+                        {% else %}
+                            <p>No image added.</p>
+                        {% endif %}
                         <div class="col-lg-6">
                             <div class="bg-black text-center h-100 project">
                                 <div class="d-flex h-100">
                                     <div class="project-text w-100 my-auto text-center text-lg-left">
                                         {% comment %} <h4 class="text-white">{{ item.question }}</h4> {% endcomment %}
-                                        <p class="mb-0 text-white-50 text-start">{{ item.info_text }}</p>
+                                        <p class="mb-0 text-white-50 text-start">{{ item.text }}</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- Info One Row-->
+                    <!-- Info Even Row-->
                     {% elif div_type == 'even' %}
                     <div class="row gx-0 justify-content-center">
                         {% comment %} <div class="col-lg-6"><img class="img-fluid" src="{% static 'assets/img/green-droplet.jpg' %}" alt="..." /></div> {% endcomment %}
-                        <div class="col-lg-6"><img class="img-fluid" src="{{ item.info_image.url }}" alt="..." /></div>
+                        {% if item.get_image %}
+                            <div class="col-lg-6"><img class="img-fluid" src="{{ item.get_image }}" alt="..." /></div>
+                        {% else %}
+                            <p>No image added.</p>
+                        {% endif %}
                         <div class="col-lg-6 order-lg-first">
                             <div class="bg-black text-center h-100 project">
                                 <div class="d-flex h-100">
                                     <div class="project-text w-100 my-auto text-center text-lg-right">
                                         {% comment %} <h4 class="text-white">{{ item.question }}</h4> {% endcomment %}
-                                        <p class="mb-0 text-white-50">{{ item.info_text }}</p>
-
+                                        <p class="mb-0 text-white-50">{{ item.text }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -100,9 +107,8 @@
                     {% endif %}
                 {% endfor %}
             </div>
-            
-
         </section>
+
         <!-- Approach -->
         <section class="projects-section bg-light" id="approach">
             <div class='text-center'>
@@ -110,15 +116,22 @@
             </div>
             <div class="container px-4 px-lg-5">
                 <!-- Approach Row-->
+                {% for item in approach %}
                 <div class="row gx-0 mb-4 mb-lg-5 align-items-center">
-                    <div class="col-xl-8 col-lg-7"><img class="img-fluid mb-3 mb-lg-0" src="{{ approach.image.url }}" alt="..." /></div>
+                    {% if item.get_image %}
+                    <div class="col-xl-8 col-lg-7"><img class="img-fluid mb-3 mb-lg-0" src="{{ item.get_image }}" alt="..." /></div>
+                    {% else %}
+                    <p>No image added.</p>
+                    {% endif %}
                     <div class="col-xl-4 col-lg-5">
                         <div class="featured-text text-center text-lg-left">
-                            <h4>service #1</h4>
-                            <p class="text-black-50 mb-0">{{ approach.text }}</p>
+                            {% comment %} <h4>service #1</h4> {% endcomment %}
+                            <p class="text-black-50 mb-0">{{ item.text }}</p>
                         </div>
                     </div>
                 </div>
+                {% endfor %}
+            </div>
                 {% comment %} <!-- Info Row-->
                 <div class="row gx-0 mb-5 mb-lg-0 justify-content-center">
                     <div class="col-lg-6"><img class="img-fluid" src="{% static 'assets/img/demo-image-01.jpg' %}" alt="..." /></div>
@@ -149,23 +162,50 @@
                 </div>
             </div> {% endcomment %}
         </section> 
-                <!-- About-->
-                <section class="about-section text-center" id="about">
-                    <div class="container px-4 px-lg-5">
-                        <div class="row gx-4 gx-lg-5 justify-content-center">
-                            <div class="col-lg-8">
-                                <h2 class="text-white mb-4">Kaadi</h2>
-                                <p class="text-white-50">
-                                    Kaddi is an amazing massage therapist that has made a transition from massage therapy to craniosacral therapy.
-                                    <!-- <a href="https://startbootstrap.com/theme/grayscale/">the preview page.</a> -->
-                                    She is really good at what she does!
-                                </p>
-                            </div>
+
+        <!-- Session -->
+        <section class="projects-section bg-light" id="session">
+            <div class='text-center'>
+                <h1 class="mx-auto my-4 text-uppercase">A Personal Experience of Healing</h1>
+            </div>
+            <div class="container px-4 px-lg-5">
+                <!-- Sesson Row-->
+                {% for item in session %}
+                <div class="row gx-0 mb-4 mb-lg-5 align-items-center">
+                    {% if item.get_image %}
+                    <div class="col-xl-8 col-lg-7"><img class="img-fluid mb-3 mb-lg-0" src="{{ item.get_image }}" alt="..." /></div>
+                    {% else %}
+                    <p>No image added.</p>
+                    {% endif %}
+                    <div class="col-xl-4 col-lg-5">
+                        <div class="featured-text text-center text-lg-left">
+                            {% comment %} <h4>service #1</h4> {% endcomment %}
+                            <p class="text-black-50 mb-0">{{ item.text|linebreaksbr|safe }}</p>
                         </div>
-                        <img class="img-fluid" src="{% static 'assets/img/kaadi-portrait.jpg' %}" alt="..." />
                     </div>
-                </section>
-                <!-- Testimonials -->
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+
+        <!-- About-->
+        <section class="about-section text-center" id="about">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-lg-8">
+                        <h2 class="text-white mb-4">Kaadi</h2>
+                        <p class="text-white-50">
+                            Kaddi is an amazing massage therapist that has made a transition from massage therapy to craniosacral therapy.
+                            <!-- <a href="https://startbootstrap.com/theme/grayscale/">the preview page.</a> -->
+                            She is really good at what she does!
+                        </p>
+                    </div>
+                </div>
+                <img class="img-fluid" src="{% static 'assets/img/kaadi-portrait.jpg' %}" alt="..." />
+            </div>
+        </section>
+
+        <!-- Testimonials -->
         <section class="projects-section bg-light" id="testimonials">
             <div class='text-center'>
                 <h1 class="mx-auto my-4 text-uppercase">Testimonials</h1>
@@ -179,7 +219,7 @@
                             {% comment %} <div class="col-xl-8 col-lg-7"><img class="img-fluid mb-3 mb-lg-0" src="{% static 'assets/img/bg-masthead.jpg' %}" alt="..." /></div> {% endcomment %}
                             <div class="col-xl-12 col-lg-12">
                                 <div class="featured-text text-center text-lg-left">
-                                    <p class="text-black-50 mb-0">"{{ testimonial.message }}" - {{ testimonial.client_name }}</p>
+                                    <p class="text-black-50 mb-0">"{{ testimonial.message }}" {{ testimonial.client_name }}</p>
                                 </div>
                             </div>
                         </div>
@@ -190,7 +230,7 @@
                         <div class="bg-black text-center h-100 project">
                             <div class="d-flex h-100">
                                 <div class="project-text w-100 my-auto text-center text-lg-left">
-                                    <p class="mb-0 text-white-50">"{{ testimonial.message }}" - {{ testimonial.client_name }}</p>
+                                    <p class="mb-0 text-white-50">"{{ testimonial.message }}" {{ testimonial.client_name }}</p>
                                 </div>
                             </div>
                         </div>
