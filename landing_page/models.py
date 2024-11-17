@@ -61,6 +61,7 @@ class Info(models.Model):
     image = models.ImageField(upload_to='uploads/', blank=True)
     image_url = models.URLField(blank=True)
     video = models.FileField(blank=True)
+    video_url = models.URLField(blank=True)
 
     def get_image(self):
         if self.image:
@@ -68,7 +69,7 @@ class Info(models.Model):
         return self.image_url
     
     def __str__(self):
-        return f'{self.info_title}'
+        return f'{self.title}'
 
 
 class ContactMessage(models.Model):

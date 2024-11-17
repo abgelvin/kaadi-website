@@ -28,18 +28,6 @@ def index(request):
     return render(request, 'landing_page/index.html', context)
 
 
-# def info_view(request):
-#     pass
-
-
-# def testimonial_view(request):
-#     pass
-
-
-# def contact(request):
-#     pass
-
-
 class SuccessView(TemplateView):
     template_name = 'success.html'
 
@@ -116,7 +104,7 @@ def contact_view(request):
                 send_mail(
                     subject,
                     message,
-                    'kaadilove@hotmail.com',
+                    'abgelvin@hotmail.com',
                     ['abgelvin@gmail.com'],
                 )
                 print(f'mail sent')

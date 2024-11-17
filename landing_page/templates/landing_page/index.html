@@ -34,7 +34,7 @@
                         <li class="nav-item"><a class="nav-link" href="#info">Info</a></li>
                         <li class="nav-item"><a class="nav-link" href="#approach">My Approach</a></li>
                         <li class="nav-item"><a class="nav-link" href="#session">A Session</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#about">About Me</a></li>
                         <li class="nav-item"><a class="nav-link" href="#testimonials">Testimonials</a></li>
                         <li class="nav-item"><a class="nav-link" href="#signup">Contact</a></li>
                     </ul>
@@ -70,6 +70,8 @@
                         {% comment %} <div class="col-lg-6"><img class="img-fluid" src="{% static 'assets/img/vertical-wave.jpg' %}" alt="..." /></div> {% endcomment %}
                         {% if item.get_image %}
                             <div class="col-lg-6"><img class="img-fluid" src="{{ item.get_image }}" alt="..." /></div>
+                        {% elif item.video %}
+                             <div class="col-lg-6"><img class="img-fluid" src="{{ item.videoe }}" alt="..." /></div>
                         {% else %}
                             <p>No image added.</p>
                         {% endif %}
@@ -189,19 +191,24 @@
         </section>
 
         <!-- About-->
-        <section class="about-section text-center" id="about">
+        <section class="about-section text-center pb-5" id="about">
             <div class="container px-4 px-lg-5">
+                {% for item in about %}
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-lg-8">
                         <h2 class="text-white mb-4">Kaadi</h2>
                         <p class="text-white-50">
-                            Kaddi is an amazing massage therapist that has made a transition from massage therapy to craniosacral therapy.
-                            <!-- <a href="https://startbootstrap.com/theme/grayscale/">the preview page.</a> -->
-                            She is really good at what she does!
+                            {{ item.text }}
+                            {% comment %} <a href="https://startbootstrap.com/theme/grayscale/">the preview page.</a>  {% endcomment %}
                         </p>
                     </div>
                 </div>
-                <img class="img-fluid" src="{% static 'assets/img/kaadi-portrait.jpg' %}" alt="..." />
+                {% if item.get_image %} 
+                    <img class="img-fluid" src="{{ item.get_image }}" alt="..." />
+                {% else %}
+                    <p>No image added.</p>
+                {% endif %}
+                {% endfor %}
             </div>
         </section>
 
