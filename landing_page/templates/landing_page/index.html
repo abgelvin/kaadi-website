@@ -70,8 +70,8 @@
                         {% comment %} <div class="col-lg-6"><img class="img-fluid" src="{% static 'assets/img/vertical-wave.jpg' %}" alt="..." /></div> {% endcomment %}
                         {% if item.get_image %}
                             <div class="col-lg-6"><img class="img-fluid" src="{{ item.get_image }}" alt="..." /></div>
-                        {% elif item.video %}
-                             <div class="col-lg-6"><img class="img-fluid" src="{{ item.videoe }}" alt="..." /></div>
+                        {% elif item.get_video %}
+                             <div class="col-lg-6"><img class="img-fluid" src="{{ item.video }}" alt="..." /></div>
                         {% else %}
                             <p>No image added.</p>
                         {% endif %}

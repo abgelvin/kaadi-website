@@ -68,6 +68,11 @@ class Info(models.Model):
             return self.image.url
         return self.image_url
     
+    def get_video(self):
+        if self.video:
+            return self.video.url
+        return self.video_url 
+    
     def __str__(self):
         return f'{self.title}'
 
