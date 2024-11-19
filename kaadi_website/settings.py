@@ -32,7 +32,7 @@ SECRET_KEY = 'django-insecure-_*@=n#fira6pw4uo)w(r!%gw$d2f*krrl$&8q(i3h22yb5_8le
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['kaadi-website.onrender.com']
 
 
 # Application definition
