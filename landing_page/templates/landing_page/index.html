@@ -45,7 +45,7 @@
         <header class="masthead">
             <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
                 <div class="d-flex justify-content-center">
-                    <div class="text-center">
+                    <div class="text-center" id="masthead-text">
                         <h1 class="mx-auto fs-1 my-0 text-uppercase">Biodynamic</h1>
                         <h1 class="mx-auto my-0 text-uppercase">Craniosacral Therapy</h1>
                         <h2 class="text-white-50 fs-3 mx-auto mt-2 mb-5">"A compassionate journey into deeper self-connection, where presence and healing meet."</h2>
@@ -121,11 +121,11 @@
                 {% for item in approach %}
                 <div class="row gx-0 mb-4 mb-lg-5 align-items-center">
                     {% if item.get_image %}
-                    <div class="col-xl-8 col-lg-7"><img class="img-fluid mb-3 mb-lg-0" src="{{ item.get_image }}" alt="..." /></div>
+                    <div class="col-xl-5 col-lg-6"><img class="img-fluid mb-3 mb-lg-0" src="{{ item.get_image }}" alt="..." /></div>
                     {% else %}
                     <p>No image added.</p>
                     {% endif %}
-                    <div class="col-xl-4 col-lg-5">
+                    <div class="col-xl-7 col-lg-6">
                         <div class="featured-text text-center text-lg-left">
                             {% comment %} <h4>service #1</h4> {% endcomment %}
                             <p class="text-black-50 mb-0">{{ item.text }}</p>

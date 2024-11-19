@@ -606,6 +606,11 @@ progress {
   height: auto;
 }
 
+#session .img-fluid {
+  width: 100%;
+
+}
+
 .img-thumbnail {
   padding: 0.25rem;
   background-color: #fff;
@@ -11089,6 +11094,19 @@ body {
   max-width: 100rem;
   font-size: 1rem;
 }
+
+@media (min-width: 768px) and (max-width: 992px) { 
+  #masthead-text { 
+    margin-top: 30vw; 
+  } 
+}
+
+@media (min-width: 576px) and (max-width: 767px) { 
+  #masthead-text { 
+    margin-top: 40vw; 
+  } 
+}
+
 @media (min-width: 768px) {
   .masthead h1, .masthead .h1 {
     font-size: 4rem;
@@ -11133,12 +11151,16 @@ body {
 }
 .projects-section .project-text {
   padding: 3rem;
-  font-size: 100%;
+  font-size: 95%;
 }
 @media (min-width: 992px) {
   .projects-section .project-text {
-    padding: 5rem;
+    padding: 1.25rem;
   }
+}
+
+.projects-section .img-fluid {
+  width: 100%;
 }
 
 .signup-section {
