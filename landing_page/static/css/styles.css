@@ -11097,13 +11097,19 @@ body {
 
 @media (min-width: 768px) and (max-width: 992px) { 
   #masthead-text { 
-    margin-top: 30vw; 
+    margin-top: 25vw; 
   } 
 }
 
 @media (min-width: 576px) and (max-width: 767px) { 
   #masthead-text { 
     margin-top: 40vw; 
+  } 
+}
+
+@media (max-width: 576px) {
+  #masthead-text { 
+    margin-top: 45vw; 
   } 
 }
 
