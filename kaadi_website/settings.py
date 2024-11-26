@@ -155,6 +155,8 @@ else:
 
 MEDIA_URL = '/media/'
 
+WHITENOISE_ALLOW_ALL_ORIGINS = True
+
 print(f'DEBUG = {DEBUG}, MEDIA_ROOT = {MEDIA_ROOT}')
 
 # MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
