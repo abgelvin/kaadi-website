@@ -148,6 +148,8 @@ if not DEBUG:
     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
+WHITENOISE_ALLOW_ALL_ORIGINS = True
+
 if DEBUG:
     MEDIA_ROOT = BASE_DIR / 'media' 
 else:
@@ -155,7 +157,6 @@ else:
 
 MEDIA_URL = '/media/'
 
-WHITENOISE_ALLOW_ALL_ORIGINS = True
 
 print(f'DEBUG = {DEBUG}, MEDIA_ROOT = {MEDIA_ROOT}')
 
