@@ -23,9 +23,9 @@ from django.views.static import serve
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('landing_page.urls')),
-    re_path('media/uploads', serve, {
-        'document_url': settings.MEDIA_ROOT,
-    }),
+    # re_path('media/uploads', serve, {
+    #     'document_url': settings.MEDIA_ROOT,
+    
 ]
 
 if settings.DEBUG:

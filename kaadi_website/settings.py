@@ -148,9 +148,15 @@ if not DEBUG:
     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
+if DEBUG:
+    MEDIA_ROOT = BASE_DIR / 'media' 
+else:
+    MEDIA_ROOT = '/media'
+
 MEDIA_URL = '/media/'
-MEDIA_ROOT = '/media'
-# MEDIA_ROOT = BASE_DIR / 'media' / 'uploads'
+
+print(f'DEBUG = {DEBUG}, MEDIA_ROOT = {MEDIA_ROOT}')
+
 # MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Default primary key field type
