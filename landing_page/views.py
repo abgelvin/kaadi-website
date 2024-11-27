@@ -105,7 +105,7 @@ def contact_view(request):
                     subject,
                     message,
                     email,
-                    ['abgelvin@hotmail.com'],
+                    ['kaadilove@hotmail.com', 'abgelvin@hotmail.com'],
                 )
                 print(f'mail sent')
             except Exception as e:
