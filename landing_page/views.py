@@ -96,7 +96,7 @@ def contact_view(request):
             name = form.cleaned_data.get('name')
             email = form.cleaned_data.get('email')
             subject = form.cleaned_data.get('subject')
-            message = f'You have a message from {name} @ {email}: \n{form.cleaned_data.get("message")}'
+            message = f'You have an email from your website from {name} @ {email}: \n{form.cleaned_data.get("message")}'
             print(f'message: {message}')
             print('sending email...')
             try:
