@@ -7,7 +7,8 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
+        <meta name="description" content="homepage for craniosacral therapy in Ridgway, CO" />
+        <meta name="keywords" content="craniosacral, therapy, massage, Ridgway, Ouray">
         <meta name="author" content="" />
         <title>CST by Kaadi</title>
         <link rel="icon" type="image/x-icon" href="{% static 'assets/favicon.ico' %}" />
@@ -196,7 +197,7 @@
                 {% for item in about %}
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-lg-8">
-                        <h2 class="text-white mb-4">Kaadi</h2>
+                        <h2 class="text-white mb-4">About Me</h2>
                         <p class="text-white-50">
                             {{ item.text }}
                             {% comment %} <a href="https://startbootstrap.com/theme/grayscale/">the preview page.</a>  {% endcomment %}
@@ -231,19 +232,19 @@
                             </div>
                         </div>
                     {% elif div_type == 'even' %}
-                <!-- Testimonial Row-->
-                <div class="row gx-0 mb-5 mb-lg-0 justify-content-center">
-                    <div class="col-lg-12">
-                        <div class="bg-black text-center h-100 project">
-                            <div class="d-flex h-100">
-                                <div class="project-text w-100 my-auto text-center text-lg-left">
-                                    <p class="mb-0 text-white-50">"{{ testimonial.message }}" {{ testimonial.client_name }}</p>
+                        <!-- Testimonial Row-->
+                        <div class="row gx-0 mb-5 mb-lg-5 justify-content-center">
+                            <div class="col-lg-12">
+                                <div class="bg-black text-center h-100 project">
+                                    <div class="d-flex h-100">
+                                        <div class="project-text w-100 my-auto text-center text-lg-left">
+                                            <p class="mb-0 text-white-50">"{{ testimonial.message }}" {{ testimonial.client_name }}</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                {% endif %}
+                    {% endif %}
                 {% endfor %}
                 {% comment %} <!-- Info Two Row-->
                 <div class="row gx-0 justify-content-center">
