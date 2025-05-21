@@ -11074,7 +11074,7 @@ body {
   height: auto;
   min-height: 35rem;
   padding: 15rem 0;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.23) 0%, rgba(0, 0, 0, 0.7) 80%, #000 100%), url("../assets/img/ocean-sunrise.jpg") /* url("../assets/img/bg-masthead.jpg") */;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.6) 90%, #000 100%), url("../assets/img/ocean-sunrise.jpg") /* url("../assets/img/bg-masthead.jpg") */;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: scroll;
@@ -11110,6 +11110,7 @@ body {
 @media (max-width: 576px) {
   #masthead-text { 
     margin-top: 45vw; 
+    
   } 
 }
 
