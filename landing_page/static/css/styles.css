@@ -11110,13 +11110,12 @@ body {
 @media (max-width: 576px) {
   #masthead-text { 
     margin-top: 45vw; 
-    
   } 
 }
 
 @media (min-width: 768px) {
   .masthead h1, .masthead .h1 {
-    font-size: 4rem;
+    font-size: 3rem;
     line-height: 4rem;
   }
 }
@@ -11126,9 +11125,9 @@ body {
     padding: 0;
   }
   .masthead h1, .masthead .h1 {
-    font-size: 6.5rem;
+    font-size: 4.5rem;
     line-height: 6.5rem;
-    letter-spacing: 0.8rem;
+    letter-spacing: 0.7rem;
   }
   .masthead h2, .masthead .h2 {
     max-width: 90rem;
